@@ -1,11 +1,46 @@
-> **Fork 说明：** 本目录是 BillCx330 插件的本地 fork，增加了「每个触发事件多段音效、随机播放」补丁，详见 [FORK-NOTES.md](FORK-NOTES.md)。原仓库：https://github.com/BillCx330/dsh-plugin-notify-sounds（MIT）。
+# dsh-plugin-notify-sounds-multi
 
-# dsh-plugin-notify-sounds
+**非官方 fork / Unofficial fork** —— 基于 [BillCx330/dsh-plugin-notify-sounds](https://github.com/BillCx330/dsh-plugin-notify-sounds) **1.8.6**（MIT）。
+
+唯一改动：**每个触发事件支持多段自定义音效，播放时随机选一段** —— 任务完成、需要决策（审批 / 计划评审）、需要提问，各自维护一组音效。
+
+- 原作者 / 原仓库：**BillCx330** —— https://github.com/BillCx330/dsh-plugin-notify-sounds（MIT，原 `LICENSE` 原文保留）
+- 本仓库**没有**发布到 npm，也**不代表**原作者背书。
+- 补丁说明：[FORK-NOTES.md](FORK-NOTES.md)
+
+## 安装这个 fork
+
+```sh
+# 包名仍是 dsh-plugin-notify-sounds，先卸载官方版（两者不能并存）
+dsh plugin --profile desktop remove dsh-plugin-notify-sounds
+dsh plugin --profile desktop add github:realmuko/dsh-plugin-notify-sounds-multi
+```
+
+或在 profile 的 `package.json` 里写：
+
+```json
+"dsh-plugin-notify-sounds": "github:realmuko/dsh-plugin-notify-sounds-multi"
+```
+
+安装后重启 DSH。设置 → 提示音 → 自定义音效：每个触发事件现在可以放多段。
+
+> 包名故意保持 `dsh-plugin-notify-sounds`（pnpm 装 git 依赖时以包内 manifest 为准），
+> 所以这个 fork 与官方包**二选一**。不要在 DSH 插件页点它的「更新」，那会把依赖切回 npm 的 1.9.x。
+
+## 与上游的差异
+
+- `lib/index.js`：Config 增加 `customSounds` / `decisionCustomSounds` / `questionCustomSounds` 三个 JSON 字段（元素为 `{n,d}`）。
+- `lib/client.js`：设置页每组支持上传/删除多段；播放时随机取一段。
+- 其余代码、文档、许可证、徽章都来自上游 1.8.6。
+
+上游 1.9.x 改成了「3 个固定槽位」，会忽略这些字段；这里停在 1.8.6 是有意为之。
+
+---
+
+## 上游 1.8.6 原始文档
 
 [![awesome · DSH plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
-[![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/billcx330/dsh-plugin-notify-sounds)
 [![DeepSeek Harness plugin](https://img.shields.io/badge/dsh-plugin-8b5cf6.svg)](https://github.com/deepseek-ai/deepseek-harness)
-[![npm version](https://img.shields.io/npm/v/dsh-plugin-notify-sounds.svg)](https://www.npmjs.com/package/dsh-plugin-notify-sounds)
 [![npm downloads](https://img.shields.io/npm/dm/dsh-plugin-notify-sounds.svg)](https://www.npmjs.com/package/dsh-plugin-notify-sounds)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
