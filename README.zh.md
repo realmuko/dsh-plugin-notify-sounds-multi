@@ -1,3 +1,5 @@
+> **Fork 说明：** 本目录是 BillCx330 插件的本地 fork，增加了「每个触发事件多段音效、随机播放」补丁，详见 [FORK-NOTES.md](FORK-NOTES.md)。原仓库：https://github.com/BillCx330/dsh-plugin-notify-sounds（MIT）。
+
 # dsh-plugin-notify-sounds
 
 [![awesome · DSH plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)

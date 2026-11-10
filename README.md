@@ -1,3 +1,5 @@
+> **Fork note:** this copy is a local fork of BillCx330's plugin with a multi-clip patch (several sounds per trigger, picked at random). See [FORK-NOTES.md](FORK-NOTES.md). Original: https://github.com/BillCx330/dsh-plugin-notify-sounds (MIT).
+
 # dsh-plugin-notify-sounds
 
 [![awesome · DSH plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
