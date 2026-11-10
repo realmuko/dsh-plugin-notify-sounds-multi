@@ -23,12 +23,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BillCx330/dsh-plugin-notify-sounds.git"
+    "url": "git+https://github.com/realmuko/dsh-plugin-notify-sounds-multi.git"
   },
   "bugs": {
-    "url": "https://github.com/BillCx330/dsh-plugin-notify-sounds/issues"
+    "url": "https://github.com/realmuko/dsh-plugin-notify-sounds-multi/issues"
   },
-  "homepage": "https://github.com/BillCx330/dsh-plugin-notify-sounds#readme",
+  "homepage": "https://github.com/realmuko/dsh-plugin-notify-sounds-multi#readme",
   "keywords": [
     "deepseek",
     "harness",

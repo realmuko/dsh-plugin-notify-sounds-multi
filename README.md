@@ -1,11 +1,47 @@
-> **Fork note:** this copy is a local fork of BillCx330's plugin with a multi-clip patch (several sounds per trigger, picked at random). See [FORK-NOTES.md](FORK-NOTES.md). Original: https://github.com/BillCx330/dsh-plugin-notify-sounds (MIT).
+# dsh-plugin-notify-sounds-multi
 
-# dsh-plugin-notify-sounds
+**Unofficial fork** of [BillCx330/dsh-plugin-notify-sounds](https://github.com/BillCx330/dsh-plugin-notify-sounds) (MIT), based on **1.8.6**.
+
+The only change: **each trigger can hold several custom sounds, one is picked at random** — completion, decision (approval / plan review) and question keep their own list.
+
+- Original author / repo: **BillCx330** — https://github.com/BillCx330/dsh-plugin-notify-sounds (MIT; the original `LICENSE` is kept verbatim in this repo)
+- This fork is **not** published to npm and is **not** endorsed by the original author.
+- Patch details: [FORK-NOTES.md](FORK-NOTES.md)
+
+## Install this fork
+
+```sh
+# the package name inside this repo is still dsh-plugin-notify-sounds, so remove the official one first
+dsh plugin --profile desktop remove dsh-plugin-notify-sounds
+dsh plugin --profile desktop add github:realmuko/dsh-plugin-notify-sounds-multi
+```
+
+Or in the profile `package.json`:
+
+```json
+"dsh-plugin-notify-sounds": "github:realmuko/dsh-plugin-notify-sounds-multi"
+```
+
+Restart DSH afterwards. Settings -> notification sounds -> custom sound: each trigger now takes a list of clips.
+
+> The manifest name is intentionally still `dsh-plugin-notify-sounds` (pnpm resolves git installs by manifest name),
+> so this fork and the official package are mutually exclusive. Do not click "update" for it in the DSH plugin page:
+> that switches the dependency back to the npm 1.9.x release.
+
+## What differs from upstream
+
+- `lib/index.js`: the Config schema gains `customSounds`, `decisionCustomSounds` and `questionCustomSounds` (JSON lists of `{n,d}`).
+- `lib/client.js`: the settings page can upload/remove several clips per trigger; playback picks one at random.
+- Everything else (code, docs, license, badges) comes from upstream 1.8.6.
+
+Upstream 1.9.x replaced this with three fixed slots and ignores these fields; staying on 1.8.6 here is deliberate.
+
+---
+
+## Upstream 1.8.6 documentation
 
 [![awesome · DSH plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
-[![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/billcx330/dsh-plugin-notify-sounds)
 [![DeepSeek Harness plugin](https://img.shields.io/badge/dsh-plugin-8b5cf6.svg)](https://github.com/deepseek-ai/deepseek-harness)
-[![npm version](https://img.shields.io/npm/v/dsh-plugin-notify-sounds.svg)](https://www.npmjs.com/package/dsh-plugin-notify-sounds)
 [![npm downloads](https://img.shields.io/npm/dm/dsh-plugin-notify-sounds.svg)](https://www.npmjs.com/package/dsh-plugin-notify-sounds)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
