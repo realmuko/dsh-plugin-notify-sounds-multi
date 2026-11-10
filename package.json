@@ -1,0 +1,62 @@
+{
+  "name": "dsh-plugin-notify-sounds",
+  "version": "1.8.6",
+  "description": "DeepSeek Harness 原生风格提示音插件：需要决策或任务完成时播放提示音，点击系统通知可回到窗口；支持重复提醒、静音时段，以及目标模式下只在最终轮提醒。 · Native-style notification sounds for DeepSeek Harness: a chime when the agent needs your decision or finishes a task, click a system notification to jump back, plus repeat reminders, quiet hours, and goal-mode alerts that wait for the final round.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.zh.md"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BillCx330/dsh-plugin-notify-sounds.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BillCx330/dsh-plugin-notify-sounds/issues"
+  },
+  "homepage": "https://github.com/BillCx330/dsh-plugin-notify-sounds#readme",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "notification",
+    "sound"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-general",
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ],
+      "platform": "web"
+    }
+  }
+}
