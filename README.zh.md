@@ -29,11 +29,17 @@ dsh plugin --profile desktop add github:realmuko/dsh-plugin-notify-sounds-multi
 
 ## 与上游的差异
 
-- `lib/index.js`：Config 增加 `customSounds` / `decisionCustomSounds` / `questionCustomSounds` 三个 JSON 字段（元素为 `{n,d}`）。
+- `lib/index.js`：Config 增加 `customSounds` / `decisionCustomSounds` / `questionCustomSounds` 三个 JSON 字段（元素为 `{n,d}`），以及 `mutedSessions`。
 - `lib/client.js`：设置页每组支持上传/删除多段；播放时随机取一段。
+- **不提醒的会话**：设置页「不提醒的会话」填会话标题（任意一段即可）或会话 ID，每行一个或用逗号分隔。命中的会话不响铃、不弹系统通知、不标窗口标题——适合自动回复这种会反复触发提醒的会话。
 - 其余代码、文档、许可证、徽章都来自上游 1.8.6。
 
 上游 1.9.x 改成了「3 个固定槽位」，会忽略这些字段；这里停在 1.8.6 是有意为之。
+
+### 本 fork 的版本
+
+- **1.8.7-multi.1** —— 新增「不提醒的会话」（`mutedSessions`），把指定会话排除在所有提醒之外。
+- **1.8.6 + 多段音效补丁** —— 首个版本：每个触发事件可挂多段音频，随机播放一段。
 
 ---
 
