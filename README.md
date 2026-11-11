@@ -30,11 +30,17 @@ Restart DSH afterwards. Settings -> notification sounds -> custom sound: each tr
 
 ## What differs from upstream
 
-- `lib/index.js`: the Config schema gains `customSounds`, `decisionCustomSounds` and `questionCustomSounds` (JSON lists of `{n,d}`).
+- `lib/index.js`: the Config schema gains `customSounds`, `decisionCustomSounds` and `questionCustomSounds` (JSON lists of `{n,d}`), plus `mutedSessions`.
 - `lib/client.js`: the settings page can upload/remove several clips per trigger; playback picks one at random.
+- **Muted sessions**: the settings row "Muted sessions" takes session titles (any fragment) or session ids, one per line or comma separated. A matching session gets no sound, no system notification and no window-title mark — for an auto-reply session that would otherwise chime on every turn.
 - Everything else (code, docs, license, badges) comes from upstream 1.8.6.
 
 Upstream 1.9.x replaced this with three fixed slots and ignores these fields; staying on 1.8.6 here is deliberate.
+
+### Fork releases
+
+- **1.8.7-multi.1** — muted sessions (`mutedSessions`): exclude chosen sessions from every alert.
+- **1.8.6 + multi-clip patch** — initial fork: several clips per trigger, one picked at random.
 
 ---
 
